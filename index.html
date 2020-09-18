@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery3.1.0.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/animation.gsap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav_wrapper">
+            <div class="logo">
+                Dev<span>A</span>mit
+            </div>
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="header_wrapper">
+            <div class="scroll_down">Scroll Down</div>
+        </div>
+        <div class="navigation__overlay">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="navigation__items">
+                <div class="navigation__container">
+                    <div class="navigation__link">
+                        <a href="#" class="active" data-number="1">home</a>
+                    </div>
+                    <div class="navigation__link">
+                        <a href="#" data-number="2">about</a>
+                    </div>
+                    <div class="navigation__link">
+                        <a href="#" data-number="3">work</a>
+                    </div>
+                    <div class="navigation__link">
+                        <a href="#" data-number="4">portfolio</a>
+                    </div>
+                    <div class="navigation__link">
+                        <a href="#" data-number="5">contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation__social">
+                <a href="#" class="social-link">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="copyright-wrapper">
+                <p class="copyright">@2020: Dev Amit Jha</p>
+            </div>
+        </div>
+
+        <div class="content_area">
+            <div class="info">
+                <div class="dot">
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                    <div class="dot_"></div>
+                </div>
+                <h2 class="effect_1">Creative <span class="outline">designer</span></h2>
+                <h2 class="effect_2"><span class="outline">&</span> developer</h2>
+                <p>Hi I'm Dev Amit Jha, a passionate Front-end Developer & UI/UX Designer <br>based in the Mumbai(India)
+                </p>
+                <div class="cta">
+                    <span>View my work<i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="social_">
+                    <a href="#" class="social-link">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const header = document.querySelector(".nav_wrapper");
+        const dot = document.querySelector(".dot");
+        const effect_1 = document.querySelector(".effect_1");
+        const effect_2 = document.querySelector(".effect_2");
+        const infoP = document.querySelector(".info p");
+        const cta = document.querySelector(".cta");
+        const social_ = document.querySelectorAll(".social-link");
+        const effectTL = gsap.timeline();
+        effectTL.from(header, {
+            delay: .1,
+            y: -16,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.InOut"
+        })
+            .from(dot, {
+                delay: -0.6,
+                y: 16,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.InOut"
+            })
+            .from([effect_1, effect_2, infoP, cta], {
+                delay: -0.1,
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.InOut",
+                stagger: {
+                    amount: 0.4
+                }
+            })
+            .from(social_, {
+                delay: -0.6,
+                x: -16,
+                opacity: 0,
+                duration: .3,
+                ease: "power3.InOut",
+                stagger: {
+                    amount: 0.5
+                }
+            })
+
+        //please subscribe my channel
+        //thank you
+
+        $(document).ready(function () {
+            $(".menu").click(function () {
+                $(this).toggleClass("active");
+                $(".navigation__overlay").toggleClass("active");
+                $(".navigation__container").toggleClass("active");
+                $(".navigation__social").toggleClass("active");
+                $(".copyright-wrapper").toggleClass("active");
+            })
+        })
+    </script>
+</body>
+
+</html>
